@@ -9,13 +9,26 @@ use Symfony\Component\Yaml\Parser;
 class Prueba {
 
     protected $archivo;
-
-    public function __construct($direccion){
+    protected $preguntas;
+    protected $indice="preguntas";
+    public function __construct($direccion=""){
         $yaml = new Parser();
         $this->archivo = $yaml->parse( file_get_contents($direccion));
+        $this->preguntas= [];
+        for($i=0; $i<count($this->archivo[$this->indice]); $i++){
+            $this->preguntas[$i]= new Pregunta($this->archivo[$this->indice][$i]);
+        }
     }
     public function obtenerArchivo(){
         return $this->archivo;
+    }
+
+    public function obtenerPreguntas(){
+        return $this->preguntas;
+    }
+
+    public function mezclarPreguntas(){
+        shuffle($this->preguntas);
     }
     //$yaml = new Parser();
 
