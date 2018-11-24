@@ -1,5 +1,9 @@
 # ExamenMultipleChoice
 
+[![Coverage Status](https://coveralls.io/repos/github/MarianelaClara/ExamenMultipleChoice/badge.svg?branch=master)](https://coveralls.io/github/MarianelaClara/ExamenMultipleChoice?branch=master)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MarianelaClara/ExamenMultipleChoice/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MarianelaClara/ExamenMultipleChoice/?branch=master)
+
 [![Build Status](https://travis-ci.org/MarianelaClara/ExamenMultipleChoice.svg?branch=master)](https://travis-ci.org/MarianelaClara/ExamenMultipleChoice)
 
 Este proyecto consta de dos clases.
