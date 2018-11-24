@@ -10,13 +10,14 @@ class Prueba {
 
     protected $archivo;
     protected $preguntas;
-    protected $indice="preguntas";
+    protected $examenes=[];
+
     public function __construct($direccion=""){
         $yaml = new Parser();
-        $this->archivo = $yaml->parse( file_get_contents($direccion));
+        $this->archivo = $yaml->parse(file_get_contents($direccion));
         $this->preguntas= [];
-        for($i=0; $i<count($this->archivo[$this->indice]); $i++){
-            $this->preguntas[$i]= new Pregunta($this->archivo[$this->indice][$i]);
+        for($i=0; $i<count($this->archivo["preguntas"]); $i++){
+            $this->preguntas[$i]= new Pregunta($this->archivo["preguntas"][$i]);
         }
     }
     public function obtenerArchivo(){
@@ -28,7 +29,17 @@ class Prueba {
     }
 
     public function mezclarPreguntas(){
-        shuffle($this->preguntas);
+       return shuffle($this->preguntas);
+    }
+
+    public function generarExamenes($cant=1) {
+        for($i=0; $i < $cant; $i++){
+            $this->preguntas[]= $this->mezclarPreguntas();
+            for($j=0; $j<count($this->preguntas); $j++){
+                $this->preguntas[$j] = ($this->preguntas[$j])->obtenerItems();
+            }
+            $this->examenes[$i]= $this->preguntas;
+        }
     }
     //$yaml = new Parser();
 
