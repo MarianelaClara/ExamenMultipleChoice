@@ -1,8 +1,8 @@
 <?php
 
-Namespace ExamenMultipleChoice;
+namespace ExamenMultipleChoice;
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Parser;
 
@@ -29,7 +29,7 @@ class Prueba {
     }
 
     public function mezclarPreguntas(){
-       return shuffle($this->preguntas);
+        return shuffle($this->preguntas);
     }
 
     public function generarExamenes($cant=1) {
@@ -44,7 +44,7 @@ class Prueba {
     //$yaml = new Parser();
 
     //$value = $yaml->parse( file_get_contents('../preguntas.yml'));
-    public function mostrarPrueba(){
+    public function mostrarPrueba() {
         print_r($this->archivo);
     }
     /*$array= [];
